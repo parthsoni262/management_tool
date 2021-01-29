@@ -1,0 +1,44 @@
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <form class="contact100-form validate-form"> 
+        <h2>M Company</h2>
+          <%= form_for @mcompany , url: { action: "create" } do |f| %>
+            <div class="form-group">
+              <%= f.label :company_cd %><br>
+              <%= f.text_field :company_cd, autocomplete: "company_cd", class: 'form-control' %>
+            </div>
+            <br>
+            <div class="form-group">
+              <%= f.label :company_name %><br>
+              <%= f.text_field :company_name, autocomplete: "company_name", class: 'form-control'  %>
+            </div>
+            <br>
+            <div class="form-group">
+              <%= f.label :address1 %><br>
+              <%= f.text_field :address1, autocomplete: "address1", class: 'form-control'  %>
+            </div>
+            <br>
+            <div class="form-group">
+              <%= f.label :address2 %><br>
+              <%= f.text_field :address2, autocomplete: "address2", class: 'form-control'  %>
+            </div>
+            <br>
+            <div class="form-group">
+              <%= f.label :email_id %><br>
+              <%= f.text_field :email_id, autocomplete: "email_id", class: 'form-control'  %>
+            </div>
+            <br>
+            <div class="form-group">
+              <%= f.label :contact_no %><br>
+              <%= f.text_field :contact_no, autocomplete: "contact_no", class: 'form-control'  %>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
+            </div><br>
+          <% end %>
+        </div>
+      </form>
+    </div>
+  </div>

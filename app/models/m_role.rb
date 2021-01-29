@@ -1,0 +1,2 @@
+class MRole < ApplicationRecord
+end
