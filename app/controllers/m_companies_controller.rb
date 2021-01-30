@@ -10,7 +10,7 @@ class MCompaniesController < ApplicationController
 
   def create
   	puts "============create============="
-    @mcompany = MCompany.new(params.require(:m_companies).permit(:company_name,  
+    @mcompany = MCompany.new(params.require(:m_company).permit(:company_name,  
      								                           :email_id, 
     								                           :contact_no))
      respond_to do |format|

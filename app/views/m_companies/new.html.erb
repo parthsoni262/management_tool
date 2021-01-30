@@ -1,8 +1,8 @@
   <div class="container-contact100">
     <div class="wrap-contact100">
-      <form class="contact100-form validate-form"> 
-        <h2>M Company</h2>
-          <%= form_for @mcompany , url: { action: "create" } do |f| %>
+      <div class="contact100-form validate-form"> 
+        <h2>M Company test</h2>
+          <%= form_for @mcompany do |f| %>
             <div class="form-group">
               <%= f.label :company_cd %><br>
               <%= f.text_field :company_cd, autocomplete: "company_cd", class: 'form-control' %>
@@ -39,6 +39,6 @@
             </div><br>
           <% end %>
         </div>
-      </form>
+      </div>
     </div>
   </div>

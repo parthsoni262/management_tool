@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_072432) do
     t.string "address2"
     t.string "email_id", null: false
     t.string "contact_no", null: false
-    t.boolean "del_flag", null: false
+    t.boolean "del_flag", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(version: 2021_01_28_072432) do
     t.integer "user_id"
     t.string "mail_id", null: false
     t.string "password", null: false
-    t.bigint "m_companies_id", default: 1, null: false
+    t.bigint "m_company_id", null: false
     t.boolean "del_flag", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["m_companies_id"], name: "index_m_users_on_m_companies_id"
+    t.index ["m_company_id"], name: "index_m_users_on_m_company_id"
     t.index ["user_id"], name: "index_m_users_on_user_id", unique: true
   end
 
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_072432) do
     t.index ["m_users_id"], name: "index_t_user_masters_on_m_users_id"
   end
 
-  add_foreign_key "m_users", "m_companies", column: "m_companies_id"
+  add_foreign_key "m_users", "m_companies"
   add_foreign_key "t_user_masters", "m_genders", column: "m_genders_id"
   add_foreign_key "t_user_masters", "m_roles", column: "m_roles_id"
   add_foreign_key "t_user_masters", "m_users", column: "m_users_id"
