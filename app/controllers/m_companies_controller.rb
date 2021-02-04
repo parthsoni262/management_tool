@@ -10,9 +10,7 @@ class MCompaniesController < ApplicationController
 
   def create
   	puts "============create============="
-    @mcompany = MCompany.new(params.require(:m_company).permit(:company_name,  
-     								                           :email_id, 
-    								                           :contact_no))
+    @mcompany = MCompany.new(mcomapanyparams)
      respond_to do |format|
        if @mcompany.save
          format.html { redirect_to m_companies_path , notice: 'Data was successfully saved.' }
@@ -22,10 +20,13 @@ class MCompaniesController < ApplicationController
      end
   end
   
-  # private
-  # def mcomapanyparams
-  #   params.require(:m_company).permit(:company_name,  
-  #   								  :email_id, 
-  #   								  :contact_no))
-  # end
+  private
+  def mcomapanyparams
+      params.require(:m_company).permit(:company_cd,
+									    :company_name,  
+									    :address1,
+									    :address2,
+				              :email_id, 
+			                :contact_no)
+  end
 end 
