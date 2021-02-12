@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
     <div class="main1">
-      <div class="signup">->
+      <div class="signup">
         <div class="container1">
           <div class="signup-content1">
             <h2>M Company test</h2>
             <%= form_for @mcompany do |f| %>
               <div class="form-group">
-                  <%= f.label :company_cd %><br>
-                  <%= f.text_field :company_cd, autocomplete: "company_cd", class: 'form-control' %>
+                <%= f.label :company_cd %><br>
+                <%= f.text_field :company_cd, autocomplete: "company_cd", class: 'form-control' %>
               </div>
              
               <div class="form-group">
@@ -22,27 +22,28 @@
               </div>
              
               <div class="form-group">
-                  <%= f.label :address1 %><br>
-                  <%= f.text_field :address1, autocomplete: "address1", class: 'form-control'  %>
+                <%= f.label :address1 %><br>
+                <%= f.text_field :address1, autocomplete: "address1", class: 'form-control'  %>
               </div>
              
               <div class="form-group">
-                  <%= f.label :address2 %><br>
-                  <%= f.text_field :address2, autocomplete: "address2", class: 'form-control'  %>
+                <%= f.label :address2 %><br>
+                <%= f.text_field :address2, autocomplete: "address2", class: 'form-control'  %>
               </div>
              
               <div class="form-group">
-                  <%= f.label :email_id %><br>
-                  <%= f.text_field :email_id, autocomplete: "email_id", class: 'form-control'  %>
+                <%#= check_email %>
+                <%= f.label :email_id %><br>
+                <%= f.text_field :email_id, autocomplete: "email_id", class: 'form-control'  %>
               </div>
              
               <div class="form-group">
-                  <%= f.label :contact_no %><br>
-                  <%= f.text_field :contact_no, autocomplete: "contact_no", class: 'form-control'  %>
+                <%= f.label :contact_no %><br>
+                <%= f.text_field :contact_no, autocomplete: "contact_no", class: 'form-control'  %>
               </div>
              
               <div class="form-group">
-                  <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
+                <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
               </div>
             <% end %>
           </div>

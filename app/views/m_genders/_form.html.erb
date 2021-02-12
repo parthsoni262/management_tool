@@ -1,0 +1,17 @@
+<h2>M Gender </h2>
+<div class="container">
+  <%= form_for @mgender do |f| %>
+    <div class="form-group">
+      <%= f.label :gender_cd %><br>
+      <%= f.text_field :gender_cd, autocomplete: "gender_cd", class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :gender_name %><br>
+      <%= f.text_field :gender_name, autocomplete: "gender_name", class: 'form-control' %>
+    </div>
+    <br>
+    <div class="form-group">
+        <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
+    </div>
+  <% end %>
+</div>

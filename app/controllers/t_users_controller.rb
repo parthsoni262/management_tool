@@ -1,17 +1,28 @@
 class TUsersController < ApplicationController
   def index
-    @tuser = TUsers.all
+    @tuser = TUserMaster.all
   end
 
   def new
-    binding.pry
-    @tuser = TUsers.new
+   # binding.pry
+    @tuser = TUserMaster.new
+    @musers = MUser.pluck(:id)    
+    @mroles = MRole.pluck(:id)
+    @mgenders = MGender.pluck(:id)
+  end
+
+  def show
+    
+  end
+
+  def edit
+    
   end
 
   def create
     #binding.pry
     puts "============create============="
-    @tuser = TUsers.new(tusersparams)
+    @tuser = TUserMaster.new(t_users_params)
      respond_to do |format|
        if @tuser.save
          format.html { redirect_to t_user_index_path , notice: 'Data was successfully saved.' }
@@ -20,9 +31,27 @@ class TUsersController < ApplicationController
        end
      end
   end
+
+  def update
+    respond_to do |format|
+      if @tuser.update(t_users_params)
+        format.html { redirect_to @tuser, notice: 'Data was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  def destroy
+    @tuser.destroy
+    respond_to do |format|
+      format.html { redirect_to t_users_path , notice: 'Data was successfully deleted.' }
+    end
+  end
+
   private
-  def tusersparams
-    params.require(:t_user).permit(:first_name,
+  def t_users_params
+    params.require(:t_user_master).permit(:first_name,
                                    :last_name,
                                    :contact_no,
                                    :parents_contact_no,

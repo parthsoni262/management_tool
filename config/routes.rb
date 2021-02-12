@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'm_genders/index'
+  # get 'm_genders/new'
+  # get 'm_roles/index'
+  # get 'm_roles/new'
   # get 't_users/index'
   # get 't_users/new'
   # get 't_users/show'
@@ -8,4 +12,6 @@ Rails.application.routes.draw do
   resources :m_companies #, only: %[index,new, create, show]
   resources :m_users
   resources :t_users
+  resources :m_roles
+  resources :m_genders
 end
