@@ -1,7 +1,18 @@
-<h1>MGenders#index</h1>
-<p>Find me in app/views/m_genders/index.html.erb</p>
-
-<h1>M Gender</h1>
-<div class="col-sm-8">
-  <%=  @mgender.inspect %>  
-</div>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Gender Code </th>
+    <th>Gender Name </th>
+  </thead>
+  <tbody>
+    <% @mgender.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.gender_cd %></td>
+        <td><%= c.gender_name %></td>
+        <td><%= link_to 'Edit', edit_m_gender_path(@mgender) %></td>
+        <td><%#= link_to 'Delete', @mgender, method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,8 +1,43 @@
-<h1>TUsers#index</h1>
-<p>Find me in app/views/t_users/index.html.erb</p>
-
-
-<h1>T User</h1>
-<div class="col-sm-8">
-  <%=  @tuser.inspect %>  
-</div>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>M User </th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>M Gender</th>
+    <th>Contact No</th>
+    <th>Parents Contact</th>
+    <th>Address</th>
+    <th>Zairyo Card</th>
+    <th>Zairyo Card Expire Date</th>
+    <th>Adhar Card</th>
+    <th>Passport</th>
+    <th>Passport Expire Date</th>
+    <th>My Number</th>
+    <th>M Role</th>
+    <th>User Name</th>
+  </thead>
+  <tbody>
+    <% @tuser.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.m_users %></td>
+        <td><%= c.first_name %></td>
+        <td><%= c.last_name%></td>
+        <td><%= c.contact_no%></td>
+        <td><%= c.parents_contact_no%></td>
+        <td><%= c.address%></td>
+        <td><%= c.zairyo_card%></td>
+        <td><%= c.zairyo_card_expire_date%></td>
+        <td><%= c.adhar_card%></td>
+        <td><%= c.passport%></td>
+        <td><%= c.passport_expire_date%></td>
+        <td><%= c.my_number%></td>
+        <td><%= c.m_roles%></td>
+        <td><%= c.user_name%></td>
+        <td><%= link_to 'Edit', edit_t_user_path(@tuser) %></td>
+        <td><%#= link_to 'Delete', @tuser, method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

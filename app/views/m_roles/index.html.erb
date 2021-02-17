@@ -1,7 +1,16 @@
-<h1>MRoles#index</h1>
-<p>Find me in app/views/m_roles/index.html.erb</p>
-
-<h1>M Role</h1>
-<div class="col-sm-8">
-  <%=  @mrole.inspect %>  
-</div>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Role Name </th>
+  </thead>
+  <tbody>
+    <% @mrole.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.role_name %></td>
+        <td><%= link_to 'Edit', edit_m_role_path(@mrole) %></td>
+        <td><%#= link_to 'Delete', @mrole, method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

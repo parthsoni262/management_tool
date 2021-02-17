@@ -1,5 +1,9 @@
 class MCompaniesController < ApplicationController
   include ApplicationHelper
+  include EmailModule
+
+  
+
   def index
   	@mcompany = MCompany.all
   end
@@ -14,11 +18,6 @@ class MCompaniesController < ApplicationController
   end
 
   def create
-    #binding.pry
-    result = check_email(m_company_params[:email_id])
-  	puts "============create============="
-    puts result
-  
     @mcompany = MCompany.new(m_company_params)
      respond_to do |format|
       if @mcompany.save
@@ -59,5 +58,9 @@ class MCompaniesController < ApplicationController
                     :contact_no
                   )
   end
+
+  # def get_m_company
+  #   @mcompany = MCompany.find(params[:id])
+  # end
 end 
 

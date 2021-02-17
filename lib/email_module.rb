@@ -1,5 +1,5 @@
 module EmailModule
-  REGEX_PATTERN = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/ 
+  REGEX_PATTERN = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/
   def check_email(email=nil)
     ((email =~REGEX_PATTERN) == 0) ? true : false 
   end
