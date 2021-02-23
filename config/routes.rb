@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :roles
   # get 'm_genders/index'
   # get 'm_genders/new'
   # get 'm_roles/index'

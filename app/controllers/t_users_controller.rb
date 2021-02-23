@@ -1,4 +1,7 @@
 class TUsersController < ApplicationController
+
+  before_action :set_t_user , only: [:edit, :destroy, :update]
+
   def index
     @tuser = TUserMaster.all
   end
@@ -12,11 +15,9 @@ class TUsersController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-    
   end
 
   def create
@@ -35,7 +36,7 @@ class TUsersController < ApplicationController
   def update
     respond_to do |format|
       if @tuser.update(t_users_params)
-        format.html { redirect_to @tuser, notice: 'Data was successfully updated.' }
+        format.html { redirect_to t_users_path, notice: 'Data was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -65,4 +66,9 @@ class TUsersController < ApplicationController
                                    :user_name
                                   )  
   end
+
+  def set_t_user
+    @tuser = TUserMaster.find_by(id: params[:id])
+  end
+
 end

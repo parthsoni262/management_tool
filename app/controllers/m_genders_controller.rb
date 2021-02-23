@@ -1,4 +1,7 @@
 class MGendersController < ApplicationController
+
+  before_action :set_m_gender , only: [:edit, :destroy, :update]
+
   def index
     @mgender = MGender.all
   end
@@ -6,8 +9,8 @@ class MGendersController < ApplicationController
   def new
     @mgender = MGender.new
   end
+
   def show
-    
   end
 
   def create
@@ -22,13 +25,12 @@ class MGendersController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
     respond_to do |format|
       if @mgender.update(m_gender_params)
-        format.html { redirect_to @mgender, notice: 'Data was successfully updated.' }
+        format.html { redirect_to m_genders_path, notice: 'Data was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -48,4 +50,9 @@ class MGendersController < ApplicationController
                                      :gender_name
                                     )  
   end
+
+  def set_m_gender
+    @mgender = MGender.find_by(id: params[:id])
+  end
+
 end

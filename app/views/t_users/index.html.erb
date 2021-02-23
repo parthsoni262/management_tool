@@ -35,8 +35,8 @@
         <td><%= c.my_number%></td>
         <td><%= c.m_roles%></td>
         <td><%= c.user_name%></td>
-        <td><%= link_to 'Edit', edit_t_user_path(@tuser) %></td>
-        <td><%#= link_to 'Delete', @tuser, method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
+        <td><%= link_to 'Edit', edit_t_user_path(id: c.id) %></td>
+        <td><%= link_to 'Delete', t_user_path(id: c.id), method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
       </tr>
     <% end %>
   </tbody>

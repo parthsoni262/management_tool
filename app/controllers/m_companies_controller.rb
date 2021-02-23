@@ -2,7 +2,7 @@ class MCompaniesController < ApplicationController
   include ApplicationHelper
   include EmailModule
 
-  
+  before_action :set_m_company , only: [:edit, :destroy, :update]
 
   def index
   	@mcompany = MCompany.all
@@ -14,7 +14,6 @@ class MCompaniesController < ApplicationController
   end
 
   def show
-    
   end
 
   def create
@@ -34,14 +33,15 @@ class MCompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @mcompany.update(m_company_params)
-        format.html { redirect_to @mcompany, notice: 'Data was successfully updated.' }
+        format.html { redirect_to m_companies_path, notice: 'Data was successfully updated.' }
       else
-        format.html { render :edit }
+        format.html { render :new }
       end
     end
   end
 
   def destroy
+    binding.pry
     @mcompany.destroy
     respond_to do |format|
       format.html { redirect_to m_companies_path , notice: 'Data was successfully deleted.' }
@@ -51,16 +51,15 @@ class MCompaniesController < ApplicationController
   private
   def m_company_params
     params.require(:m_company).permit(:company_cd,
-                    :company_name,  
-                    :address1,
-                    :address2,
-                    :email_id, 
-                    :contact_no
-                  )
+                                      :company_name,  
+                                      :address1,
+                                      :address2,
+                                      :email_id, 
+                                      :contact_no
+                                    )
   end
 
-  # def get_m_company
-  #   @mcompany = MCompany.find(params[:id])
-  # end
-end 
-
+  def set_m_company
+    @mcompany = MCompany.find_by(id: params[:id])
+  end
+end

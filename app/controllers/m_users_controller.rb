@@ -1,10 +1,12 @@
 class MUsersController < ApplicationController
+
+  before_action :set_m_user , only: [:edit, :destroy, :update]
+  
   def index
     @muser = MUser.all
   end
 
   def show
-    
   end
 
   def new
@@ -13,7 +15,6 @@ class MUsersController < ApplicationController
   end
 
   def edit
-        
   end
 
   def create
@@ -24,6 +25,7 @@ class MUsersController < ApplicationController
        if @muser.save
          format.html { redirect_to m_users_path , notice: 'Data was successfully saved.' }
        else
+         @companies = MCompany.pluck(:company_name, :id)
          format.html { render :new }
        end
      end
@@ -32,7 +34,7 @@ class MUsersController < ApplicationController
   def update
     respond_to do |format|
       if @muser.update(m_users_params)
-        format.html { redirect_to @muser, notice: 'Data was successfully updated.' }
+        format.html { redirect_to m_users_path, notice: 'Data was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -53,4 +55,9 @@ class MUsersController < ApplicationController
                                    :m_company_id,
 									                 :password)  
   end
+
+  def set_m_user
+    @muser = MUser.find_by(id: params[:id])
+  end
+
 end

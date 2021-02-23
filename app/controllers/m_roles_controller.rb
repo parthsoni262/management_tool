@@ -1,4 +1,7 @@
 class MRolesController < ApplicationController
+
+  before_action :set_m_role , only: [:edit, :destroy, :update]
+
   def index
     @mrole = MRole.all
   end
@@ -6,8 +9,8 @@ class MRolesController < ApplicationController
   def new
     @mrole = MRole.new
   end
+
   def show
-    
   end
 
   def create
@@ -22,13 +25,12 @@ class MRolesController < ApplicationController
   end
 
   def edit
-    
   end
   
   def update
     respond_to do |format|
       if @mrole.update(m_role_params)
-        format.html { redirect_to @mrole, notice: 'Data was successfully updated.' }
+        format.html { redirect_to m_roles_path, notice: 'Data was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -46,4 +48,9 @@ class MRolesController < ApplicationController
   def m_role_params
     params.require(:m_role).permit(:role_name)  
   end
+
+  def set_m_role
+    @mrole = MRole.find_by(id: params[:id])
+  end
+  
 end

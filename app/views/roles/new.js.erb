@@ -1,0 +1,5 @@
+$("#role-modal").append("<%= j render('form') %>" );
+$("#role-modal").modal("show")
+
+$("#role-modal").html("<%= escape_javascript(render :partial => 'roles/form', :locals => {:roles => @roles}) %>");
+$("#role-modal").modal("show")

@@ -18,8 +18,8 @@
         <td><%= c.address2 %></td>
         <td><%= c.email_id %></td>
         <td><%= c.contact_no %></td>
-        <td><%= link_to 'Edit', edit_m_company_path(@mcompany) %></td>
-        <td><%#= link_to 'Delete', @mcompany, method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
+        <td><%= link_to 'Edit', edit_m_company_path(id: c.id) %></td>
+        <td><%= link_to 'Delete', m_company_path(id: c.id) , method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
