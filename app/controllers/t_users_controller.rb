@@ -21,7 +21,7 @@ class TUsersController < ApplicationController
   end
 
   def create
-    #binding.pry
+    binding.pry
     puts "============create============="
     @tuser = TUserMaster.new(t_users_params)
      respond_to do |format|
@@ -53,18 +53,18 @@ class TUsersController < ApplicationController
   private
   def t_users_params
     params.require(:t_user_master).permit(:first_name,
-                                   :last_name,
-                                   :contact_no,
-                                   :parents_contact_no,
-                                   :address,
-                                   :zairyo_card,
-                                   :zairyo_card_expire_date,
-                                   :adhar_card,
-                                   :passport,
-                                   :passport_expire_date,
-                                   :my_number,
-                                   :user_name
-                                  )  
+                                          :last_name,
+                                          :contact_no,
+                                          :parents_contact_no,
+                                          :address,
+                                          :zairyo_card,
+                                          :zairyo_card_expire_date,
+                                          :adhar_card,
+                                          :passport,
+                                          :passport_expire_date,
+                                          :my_number,
+                                          :user_name
+                                        )  
   end
 
   def set_t_user
