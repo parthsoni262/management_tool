@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 2021_02_17_124718) do
   end
 
   create_table "t_user_masters", force: :cascade do |t|
-    t.bigint "m_users_id", null: false
+    t.bigint "m_user_id", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.bigint "m_genders_id", null: false
+    t.bigint "m_gender_id", null: false
     t.string "contact_no", null: false
     t.bigint "parents_contact_no"
     t.string "address"
@@ -73,18 +73,18 @@ ActiveRecord::Schema.define(version: 2021_02_17_124718) do
     t.binary "passport", null: false
     t.datetime "passport_expire_date"
     t.bigint "my_number", null: false
-    t.bigint "m_roles_id"
+    t.bigint "m_role_id"
     t.string "user_name"
     t.boolean "del_flag", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["m_genders_id"], name: "index_t_user_masters_on_m_genders_id"
-    t.index ["m_roles_id"], name: "index_t_user_masters_on_m_roles_id"
-    t.index ["m_users_id"], name: "index_t_user_masters_on_m_users_id"
+    t.index ["m_gender_id"], name: "index_t_user_masters_on_m_gender_id"
+    t.index ["m_role_id"], name: "index_t_user_masters_on_m_role_id"
+    t.index ["m_user_id"], name: "index_t_user_masters_on_m_user_id"
   end
 
   add_foreign_key "m_users", "m_companies"
-  add_foreign_key "t_user_masters", "m_genders", column: "m_genders_id"
-  add_foreign_key "t_user_masters", "m_roles", column: "m_roles_id"
-  add_foreign_key "t_user_masters", "m_users", column: "m_users_id"
+  add_foreign_key "t_user_masters", "m_genders"
+  add_foreign_key "t_user_masters", "m_roles"
+  add_foreign_key "t_user_masters", "m_users"
 end

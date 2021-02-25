@@ -1,10 +1,9 @@
 <h2>T User</h2>
 <div class="container">
-  <%= form_for @tuser,url: t_users_path do |f| %>
+  <%= form_for @tuser, url: t_users_path do |f| %>
     <div>
-      <%= f.label :m_users_id %>
-      <%#= f.select :m_users_id , @musers %>
-      <%= f.text_field :m_users_id, autocomplete: "m_users_id", class: 'form-control' %>
+      <%= f.label :m_user_id %>
+      <%= f.select :m_user_id , @musers %>
     </div>
     <br>
     <div class="form-group">
@@ -17,8 +16,8 @@
       <%= f.text_field :last_name, autocomplete: "last_name", class: 'form-control'  %>
     </div>
     <div>
-      <%= f.label :m_genders_id %>
-      <%= f.select :m_genders_id , @mgenders %>
+      <%= f.label :m_gender_id %>
+      <%= f.select :m_gender_id, @mgenders %>
 
     </div>
     <div class="form-group">
@@ -59,8 +58,8 @@
     </div>
     <br>
     <div class="form-group">
-      <%= f.label :m_roles_id %>
-      <%= f.select :m_roles_id , @mroles %>
+      <%= f.label :m_role_id %>
+      <%= f.select :m_role_id, @mroles %>
     </div>
     <div class="form-group">
       <%= f.label :user_name %><br>
@@ -68,7 +67,7 @@
     </div>
     <br>
     <div class="form-group">
-      <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
+      <%= f.submit "#{ tuser.id ? 'Update' : 'Create'}", class: 'btn btn-primary btn-block' %>
     </div><br>
   <% end %>
 </div>

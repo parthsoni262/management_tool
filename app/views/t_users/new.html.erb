@@ -1,74 +1,9 @@
-<h2>T User</h2>
-<div class="container">
-  <%= form_for @tuser,url: t_users_path do |f| %>
-    <div>
-      <%= f.label :m_users_id %>
-      <%= f.select :m_users_id , @musers %>
-      <%#= f.text_field :m_users_id, autocomplete: "m_users_id", class: 'form-control' %>
-    </div>
-    <br>
-    <div class="form-group">
-      <%= f.label :first_name %><br>
-      <%= f.text_field :first_name, autocomplete: "first_name", class: 'form-control' %>
-    </div>
-    <br>
-    <div class="form-group">
-      <%= f.label :last_name %><br>
-      <%= f.text_field :last_name, autocomplete: "last_name", class: 'form-control'  %>
-    </div>
-    <div>
-      <%= f.label :m_genders_id %>
-      <%= f.select :m_genders_id , @mgenders %>
+<div class="col-sm-8 blog-main">
 
-    </div>
-    <div class="form-group">
-      <%= f.label :contact_no %><br>
-      <%= f.text_field :contact_no, autocomplete: "contact_no", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :parents_contact_no %><br>
-      <%= f.text_field :parents_contact_no, autocomplete: "parents_contact_no", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :address %><br>
-      <%= f.text_field :address, autocomplete: "address", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :zairyo_card %><br>
-      <%= f.text_field :zairyo_card, autocomplete: "zairyo_card", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :zairyo_card_expire_date %><br>
-      <%= f.text_field :zairyo_card_expire_date, autocomplete: "zairyo_card_expire_date", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :adhar_card %><br>
-      <%= f.text_field :adhar_card, autocomplete: "adhar_card", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :passport %><br>
-      <%= f.text_field :passport, autocomplete: "passport", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :passport_expire_date %><br>
-      <%= f.text_field :passport_expire_date, autocomplete: "passport_expire_date", class: 'form-control'  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :my_number %><br>
-      <%= f.text_field :my_number, autocomplete: "my_number", class: 'form-control'  %>
-    </div>
-    <br>
-    <div class="form-group">
-      <%= f.label :m_roles_id %>
-      <%= f.select :m_roles_id , @mroles %>
-    </div>
-    <div class="form-group">
-      <%= f.label :user_name %><br>
-      <%= f.text_field :user_name, autocomplete: "user_name", class: 'form-control'  %>
-    </div>
-    <br>
-    <div class="form-group">
-      <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
-    </div><br>
-  <% end %>
+<h1>Create T Tser</h1>
+
+<%= render 'form', tuser: @tuser %>
+
+<%= link_to 'Back', m_users_path %> |
+
 </div>

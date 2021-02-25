@@ -9,15 +9,18 @@ class TUsersController < ApplicationController
   def new
    # binding.pry
     @tuser = TUserMaster.new
-    @musers = MUser.pluck(:id)    
-    @mroles = MRole.pluck(:id)
-    @mgenders = MGender.pluck(:id)
+    @musers = MUser.pluck(:user_id, :id)    
+    @mgenders = MGender.pluck(:gender_name, :id)
+    @mroles = MRole.pluck(:role_name, :id)    
   end
 
   def show
   end
 
   def edit
+    @musers = MUser.pluck(:user_id, :id) 
+    @mgenders = MGender.pluck(:gender_name, :id)
+    @mroles = MRole.pluck(:role_name, :id) 
   end
 
   def create
@@ -26,9 +29,12 @@ class TUsersController < ApplicationController
     @tuser = TUserMaster.new(t_users_params)
      respond_to do |format|
        if @tuser.save
-         format.html { redirect_to t_user_index_path , notice: 'Data was successfully saved.' }
+        format.html { redirect_to t_users_path , notice: 'Data was successfully saved.' }
        else
-         format.html { render :new }
+        @musers = MUser.pluck(:user_id, :id)    
+        @mgenders = MGender.pluck(:gender_name, :id)
+        @mroles = MRole.pluck(:role_name, :id)
+        format.html { render :new }
        end
      end
   end
@@ -52,7 +58,10 @@ class TUsersController < ApplicationController
 
   private
   def t_users_params
-    params.require(:t_user_master).permit(:first_name,
+    params.require(:t_user_master).permit(:m_user_id,
+                                          :m_gender_id, 
+                                          :m_role_id,
+                                          :first_name,
                                           :last_name,
                                           :contact_no,
                                           :parents_contact_no,

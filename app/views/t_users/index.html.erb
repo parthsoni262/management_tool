@@ -21,9 +21,10 @@
     <% @tuser.each do |c| %>
       <tr>
         <td><%= c.id %></td>
-        <td><%= c.m_users %></td>
+        <td><%= c.m_user %></td>
         <td><%= c.first_name %></td>
         <td><%= c.last_name%></td>
+        <td><%= c.m_gender %></td>
         <td><%= c.contact_no%></td>
         <td><%= c.parents_contact_no%></td>
         <td><%= c.address%></td>
@@ -33,7 +34,7 @@
         <td><%= c.passport%></td>
         <td><%= c.passport_expire_date%></td>
         <td><%= c.my_number%></td>
-        <td><%= c.m_roles%></td>
+        <td><%= c.m_role %></td>
         <td><%= c.user_name%></td>
         <td><%= link_to 'Edit', edit_t_user_path(id: c.id) %></td>
         <td><%= link_to 'Delete', t_user_path(id: c.id), method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
