@@ -42,7 +42,7 @@ class MCompaniesController < ApplicationController
 
   def destroy
     binding.pry
-    #@mcompany = MCompany.find_by(id: params[:id])
+    @mcompany = MCompany.find_by(id: params[:id])
     @mcompany.destroy
     respond_to do |format|
       format.html { redirect_to m_companies_path , notice: 'Data was successfully deleted.' }

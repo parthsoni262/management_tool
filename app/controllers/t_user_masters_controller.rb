@@ -1,4 +1,4 @@
-class TUsersController < ApplicationController
+class TUserMastersController < ApplicationController
 
   before_action :set_t_user , only: [:edit, :destroy, :update]
 
@@ -7,7 +7,6 @@ class TUsersController < ApplicationController
   end
 
   def new
-   # binding.pry
     @tuser = TUserMaster.new
     @musers = MUser.pluck(:user_id, :id)    
     @mgenders = MGender.pluck(:gender_name, :id)
@@ -24,12 +23,11 @@ class TUsersController < ApplicationController
   end
 
   def create
-    binding.pry
     puts "============create============="
     @tuser = TUserMaster.new(t_users_params)
      respond_to do |format|
        if @tuser.save
-        format.html { redirect_to t_users_path , notice: 'Data was successfully saved.' }
+        format.html { redirect_to t_user_masters_path , notice: 'Data was successfully saved.' }
        else
         @musers = MUser.pluck(:user_id, :id)    
         @mgenders = MGender.pluck(:gender_name, :id)
@@ -40,9 +38,10 @@ class TUsersController < ApplicationController
   end
 
   def update
+    binding.pry
     respond_to do |format|
       if @tuser.update(t_users_params)
-        format.html { redirect_to t_users_path, notice: 'Data was successfully updated.' }
+        format.html { redirect_to t_user_masters_path, notice: 'Data was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -52,7 +51,7 @@ class TUsersController < ApplicationController
   def destroy
     @tuser.destroy
     respond_to do |format|
-      format.html { redirect_to t_users_path , notice: 'Data was successfully deleted.' }
+      format.html { redirect_to t_user_masters_path , notice: 'Data was successfully deleted.' }
     end
   end
 

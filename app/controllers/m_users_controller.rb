@@ -15,6 +15,7 @@ class MUsersController < ApplicationController
   end
 
   def edit
+    @companies = MCompany.pluck(:company_name, :id)
   end
 
   def create

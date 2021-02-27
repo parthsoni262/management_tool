@@ -1,6 +1,6 @@
 <h2>T User</h2>
 <div class="container">
-  <%= form_for @tuser, url: t_users_path do |f| %>
+  <%= form_for @tuser do |f| %>
     <div>
       <%= f.label :m_user_id %>
       <%= f.select :m_user_id , @musers %>

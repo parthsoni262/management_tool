@@ -36,9 +36,11 @@
         <td><%= c.my_number%></td>
         <td><%= c.m_role %></td>
         <td><%= c.user_name%></td>
-        <td><%= link_to 'Edit', edit_t_user_path(id: c.id) %></td>
-        <td><%= link_to 'Delete', t_user_path(id: c.id), method: :delete, data: {confirm: 'Are you sure you want to delete this '} %></td>
+        <td><%= link_to 'Edit', edit_t_user_master_path(id: c.id) %></td>
+        <td><%= button_to "Delete", t_user_master_path(id: c.id), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "New", new_t_user_master_path %>

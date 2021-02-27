@@ -19,8 +19,10 @@
         <td><%= c.email_id %></td>
         <td><%= c.contact_no %></td>
         <td><%= link_to 'Edit', edit_m_company_path(id: c.id) %></td>
-        <td><%= link_to 'Delete', m_company_path(id: c.id) , method: :delete %></td>
+        <td><%= button_to 'Delete', m_company_path(id: c.id) , method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "New", new_m_company_path %>
